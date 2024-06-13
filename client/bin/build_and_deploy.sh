@@ -9,6 +9,12 @@ BUILD_FOLDER=$(pwd)/${BUILD_OUPUT_FOLDER}
 S3_BUCKET_NAME=custom-build-react-website
 
 
+# if we have first arugment defined then use it as the build id 
+if [ -n $1 ]; then
+ BUILD_ID=$1
+fi
+
+
 VITE_CUSTOM_BASE_PATH="/${BUILD_ID}" npm run build
 
 aws s3 sync  $BUILD_FOLDER  s3://${S3_BUCKET_NAME}/${BUILD_ID}
