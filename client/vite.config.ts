@@ -8,8 +8,6 @@ export default defineConfig(({ mode }) => {
    */
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }; // load env variable from .env file
 
-  console.log("path", process.env.VITE_CUSTOM_BASE_PATH);
-
   return {
     plugins: [react()],
     base:
