@@ -10,7 +10,7 @@ S3_BUCKET_NAME=custom-build-react-website
 
 
 # if we have first arugment defined then use it as the build id 
-if [ -n $1 ]; then
+if [ $1 ]; then
  BUILD_ID=$1
 fi
 
